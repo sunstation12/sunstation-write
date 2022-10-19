@@ -1,0 +1,1 @@
+<p>TTO - Ngày 7-9, Apple ra mắt các mẫu iPhone 14 mới có khả năng sử dụng vệ tinh để gửi tin nhắn khẩn cấp, và đồng hồ Ultra Watch chuyên hỗ trợ cho các môn thể thao như lặn và ba môn phối hợp.</p>

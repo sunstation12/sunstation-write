@@ -1,0 +1,1 @@
+<p>TTO - Các nhà nghiên cứu của Lực lượng Không quân Mỹ và Đại học Penn State, bang Pennsylvania, tuyên bố đã tạo ra mẫu vật liệu polyme mềm có thể suy nghĩ và cảm nhận.</p>
