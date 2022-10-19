@@ -1,0 +1,1 @@
+<p>Hiện tượng kỳ lạ ở đây là việc chiếc máy tính yêu quý của bạn sẽ đột nhiên xảy ra hư hỏng nếu vô tình bật phải bài hát ra mắt từ năm 1980 này.</p>
