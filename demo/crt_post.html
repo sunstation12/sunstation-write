@@ -1,0 +1,396 @@
+<?php
+    require "includes/html_head.php";
+?>
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../../setting/main_file/post_tag.css">
+
+<title>Trình tạo Bài viết | Sun Station Write</title>
+</head>
+
+<?php
+    require "includes/style.php";
+?>
+
+<body>
+<?php
+require "includes/header.php";
+?>
+
+<div id="container">
+    <h1>Bài Viết chủ đề Bài Đăng</h1>
+
+    <form method="post" entype="multipart/form-data">
+        <h3>Tiêu đề</h3>
+        <input name="post_input_title" required>
+        <h3>Mô tả</h3>
+        <textarea class="post_input_describe" id="post_input_describe" name="post_input_describe"></textarea>
+        <h3>Nội dung Bài Viết</h3>
+
+        <div id="command_post_tool" class="command_post_tool">
+    <div title="Xuống dòng" onclick="cmd_post__enter()" name="cmd_post--enter"
+        id="cmd_post--enter" class="cmd_post_items" style="margin-left:-5px"
+    >br
+    </div>
+    <div title="Xuống đoạn mới" onclick="cmd_post__enter_two()" name="cmd_post--enter2"
+        id="cmd_post--enter2" class="cmd_post_items"
+    >brbr
+    </div>
+    <div title="Đề mục nhỏ" onclick="cmd_post__little_title()" name="cmd_post--little_title"
+        id="cmd_post--little_title" class="cmd_post_items" style="margin-left:-5px"
+    ><i class="fa-solid fa-heading"></i>
+    </div>
+    <div title="In đậm" onclick="cmd_post__bold()" name="cmd_post--bold"
+        id="cmd_post--bold" class="cmd_post_items"
+    >B
+    </div>
+    <div title="In nghiêng" onclick="cmd_post__italicized()" name="cmd_post--italicized"
+        id="cmd_post--italicized" class="cmd_post_items" style="padding-right:8px"
+    ><i>I
+    </i></div>
+    <div title="In vừa đậm vừa nghiêng" onclick="cmd_post__bold_italicized()" name="cmd_post--bold_italicized"
+        id="cmd_post--bold_italicized" class="cmd_post_items" style="padding-right:8px"
+    ><i>B
+    </i></div>
+    <div title="Gạch chân" onclick="cmd_post__underline()" name="cmd_post--underline"
+        id="cmd_post--underline" class="cmd_post_items"
+    >U
+    </div>
+    <div title="Chèn đường dẫn (Link)" onclick="cmd_post__link()" name="cmd_post--link"
+        id="cmd_post--link" class="cmd_post_items"
+    ><i class="fa-solid fa-link"></i>
+    </div>
+    <div title="Chèn ảnh" onclick="cmd_post__img()" name="cmd_post--img"
+        id="cmd_post--img" class="cmd_post_items"
+    ><i class="fa-regular fa-image"></i>
+    </div>
+    <div title="Tải bản xem trước" onclick="cmd_post__toggle_view()" name="cmd_post--toggle_view"
+        id="cmd_post--toggle_view" class="cmd_post_items"
+    ><i class="fa-solid fa-eye"></i>
+    </div>
+
+    <div class="word_count">
+        <div class="word_count_items">
+            Số ký tự:
+            <div class="result_count_items" id="count_characters">0</div>
+        </div>
+        <div class="word_count_items">
+            Số từ:
+            <div class="result_count_items" id="count_word">0</div>
+        </div>
+    </div>
+
+    <div id="cmd_add--toggle_view">
+        <div title="Tắt cửa sổ Toggle View" onclick="close__cmd_add_toggle_view()" id="close--cmd_add_toggle_view">
+            <i class="fa-solid fa-eye-slash"></i>
+        </div>
+        <div class="css_post_tag_div_UPDATE" id="cmd--toggle_view"></div>
+    </div>
+
+    <div id="command_post_tool_help">
+        <div title="Tắt cửa sổ" onclick="close__command_post_tool_help()" id="close--command_post_tool_help">
+            <i class="fa-solid fa-eye-slash"></i>
+        </div>
+        <div class="cmd_add_items" id="cmd_add--little_title">
+            <p>Nhập nội dung đề mục nhỏ:</p>
+            <input id="input_add--little_title" name="input_add--little_title" autocomplete="off" required>
+            <button id="btn_add--little_title" onclick="btn_add__little_title()" name="btn_add--little_title">Thêm</button>
+        </div>
+        <div class="cmd_add_items" id="cmd_add--bold">
+            <p>Nhập từ cần in Đậm:</p>
+            <input id="input_add--bold" name="input_add--bold" autocomplete="off" required>
+            <button id="btn_add--bold" onclick="btn_add__bold()" name="btn_add--bold">Thêm</button>
+        </div>
+        <div class="cmd_add_items" id="cmd_add--italicized">
+            <p>Nhập từ cần in Nghiêng:</p>
+            <input id="input_add--italicized" name="input_add--italicized" autocomplete="off" required>
+            <button id="btn_add--italicized" onclick="btn_add__italicized()" name="btn_add--italicized">Thêm</button>
+        </div>
+        <div class="cmd_add_items" id="cmd_add--bold_italicized">
+            <p>Nhập từ cần in Đậm và Nghiêng:</p>
+            <input id="input_add--bold_italicized" name="input_add--bold_italicized" autocomplete="off" required>
+            <button id="btn_add--bold_italicized" onclick="btn_add__bold_italicized()" name="btn_add--bold_italicized">Thêm</button>
+        </div>
+        <div class="cmd_add_items" id="cmd_add--underline">
+            <p>Nhập từ cần Gạch Chân:</p>
+            <input id="input_add--underline" name="input_add--underline" autocomplete="off" required>
+            <button id="btn_add--underline" onclick="btn_add__underline()" name="btn_add--underline">Thêm</button>
+        </div>
+        <div class="cmd_add_items" id="cmd_add--link">
+            <p>Chèn đường Link (URL):</p>
+            <input placeholder="Nhập từ để hiển thị" id="input_add--word_link" name="input_add--word_link" autocomplete="off" required>
+            <input placeholder="Nhập đường link cần đến" id="input_add--link" name="input_add--link" autocomplete="off" required>
+            <button id="btn_add--link" onclick="btn_add__link()" name="btn_add--link">Thêm</button>
+        </div>
+        <div class="cmd_add_items" id="cmd_add--img">
+            <p>Chèn ảnh: (Chỉ hỗ trợ chèn ảnh qua Link, không hỗ trợ Tải lên Ảnh)</p>
+            <input placeholder="Nhập Link (URL) ảnh" id="input_add--img" name="input_add--img" autocomplete="off" required>
+            <button id="btn_add--img" onclick="btn_add__img()" name="btn_add--img">Thêm</button>
+        </div>
+    </div>
+</div>
+
+        <textarea class="post_input_content" id="post_input_content" name="post_input_content" required></textarea>
+        <h3>Chế độ bài viết</h3>
+        <input name="private_mode" id="private_mode" class="post_mode" type="checkbox">
+        <p class="post_label_title">
+            <label for="private_mode">Riêng tư</label>
+        </p>
+        <h3 title="Không bắt buộc">Chủ đề đã tạo trong Bài Đăng (Không bắt buộc)</h3>
+        <p class="p_text_guide"><span style="color:red">Lưu ý:</span> Bạn phải viết đúng chính tả tên chủ đề (Chủ đề bạn đã tạo) thì bộ lọc mới có tác dụng.</p><br>
+        <input name="post_theme_classify" placeholder="Viết in thường tên chủ đề" title="Không bắt buộc"><br><br>
+        <button id="btn_post" name="btn_post">Đăng bài</button><br><br>
+    </form>
+
+<p class="p_text_guide">
+    <span><</span><span>br></span>
+    để xuống dòng;<br>
+    <span><</span><span>br></span><span><</span><span>br></span>
+    để cách 2 dòng viết đoạn mới;<br>
+    <span><</span><span>b></span><span style="color:red">*</span><span><</span><span>/b></span>
+    để viết đậm;<br>
+    <span><</span><span>i></span><span style="color:red">*</span><span><</span><span>/i></span>
+    để in nghiêng;<br>
+    <span><</span><span>b></span><span><</span><span>i></span><span style="color:red">*</span><span><</span><span>/i></span><span><</span><span>/b></span>
+    để vừa viết đậm vừa in nghiêng;<br>
+    <span><</span><span>span></span><span style="color:red">*</span><span><</span><span>/span></span>
+    để đánh dấu dòng chữ là những đề mục nhỏ;
+</p>
+
+</div>
+
+</body>
+      
+<script>
+    var input = document.getElementById("post_input_content");
+
+    function cmd_post__enter() {
+        input.value = input.value + "<br>";
+
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+        
+        document.getElementById("command_post_tool_help").style.display = "none";
+    }
+
+    function cmd_post__enter_two() {
+        input.value = input.value + "<br><br>";
+        
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+        
+        document.getElementById("command_post_tool_help").style.display = "none";
+    }
+
+    function cmd_post__little_title() {
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+
+        document.getElementById("command_post_tool_help").style.display = "block";
+        document.getElementById("cmd_add--little_title").style.display = "block";
+    }
+
+    function cmd_post__bold() {
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+
+        document.getElementById("command_post_tool_help").style.display = "block";
+        document.getElementById("cmd_add--bold").style.display = "block";
+    }
+
+    function cmd_post__italicized() {
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+        
+        document.getElementById("command_post_tool_help").style.display = "block";
+        document.getElementById("cmd_add--italicized").style.display = "block";
+    }
+
+    function cmd_post__bold_italicized() {
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+        
+        document.getElementById("command_post_tool_help").style.display = "block";
+        document.getElementById("cmd_add--bold_italicized").style.display = "block";
+    }
+
+    function cmd_post__underline() {
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+        
+        document.getElementById("command_post_tool_help").style.display = "block";
+        document.getElementById("cmd_add--underline").style.display = "block";
+    }
+
+    function cmd_post__link() {
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+        
+        document.getElementById("command_post_tool_help").style.display = "block";
+        document.getElementById("cmd_add--link").style.display = "block";
+    }
+
+    function cmd_post__img() {
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+        
+        document.getElementById("command_post_tool_help").style.display = "block";
+        document.getElementById("cmd_add--img").style.display = "block";
+    }
+
+    function cmd_post__toggle_view() {        
+        input.style.width = "50%";
+        input.style.maxWidth = "50%";
+        document.getElementById("cmd_add--toggle_view").style.display = "block";
+    }
+
+
+    function close__command_post_tool_help() {
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+        
+        document.getElementById("command_post_tool_help").style.display = "none";
+    }
+
+    function close__cmd_add_toggle_view() {        
+        input.style.width = "100%";
+        input.style.maxWidth = "100%";
+        document.getElementById("cmd_add--toggle_view").style.display = "none";
+    }
+</script>
+
+<script>
+    var input = document.getElementById("post_input_content");
+
+    function btn_add__little_title() {
+        var input_add = document.getElementById("input_add--little_title");
+        input.value = input.value + "<span>" + input_add.value + "</span>";
+
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+            
+        document.getElementById("command_post_tool_help").style.display = "none";
+    }
+
+    function btn_add__bold() {
+        var input_add = document.getElementById("input_add--bold");
+        input.value = input.value + "<b>" + input_add.value + "</b>";
+
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+            
+        document.getElementById("command_post_tool_help").style.display = "none";
+    }
+
+    function btn_add__italicized() {
+        var input_add = document.getElementById("input_add--italicized");
+        input.value = input.value + "<i>" + input_add.value + "</i>";
+
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+            
+        document.getElementById("command_post_tool_help").style.display = "none";
+    }
+
+    function btn_add__bold_italicized() {
+        var input_add = document.getElementById("input_add--bold_italicized");
+        input.value = input.value + "<b><i>" + input_add.value + "</i></b>";
+
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+            
+        document.getElementById("command_post_tool_help").style.display = "none";
+    }
+
+    function btn_add__underline() {
+        var input_add = document.getElementById("input_add--underline");
+        input.value = input.value + "<u>" + input_add.value + "</u>";
+
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+            
+        document.getElementById("command_post_tool_help").style.display = "none";
+    }
+
+    function btn_add__link() {
+        var input_add_word = document.getElementById("input_add--word_link");
+        var input_add = document.getElementById("input_add--link");
+        input.value = input.value + '<a href="' + input_add.value + '">' + input_add_word.value + "</a>";
+
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+            
+        document.getElementById("command_post_tool_help").style.display = "none";
+    }
+
+    function btn_add__img() {
+        var input_add = document.getElementById("input_add--img");
+        input.value = input.value + '<img src="' + input_add.value + '">';
+
+        const nodeList = document.querySelectorAll(".cmd_add_items");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+            
+        document.getElementById("command_post_tool_help").style.display = "none";
+    }
+</script>
+
+<script>
+    document.getElementById("post_input_content").oninput = function() {
+        var inputarea = document.getElementById("post_input_content");
+        var area = inputarea.value.replace(/\r?\n/g, "");
+        var cleanText = area.replace(/<\/?[^>]+(>|$)/g, "");
+
+        document.getElementById("count_characters").innerHTML = cleanText.length;
+
+        str1= inputarea.value;
+		str1 = str1.replace(/(^\s*)|(\s*$)/gi,"");
+		str1 = str1.replace(/[ ]{2,}/gi," ");
+		str1 = str1.replace(/\n /,"\n");
+
+		document.getElementById("count_word").innerHTML = str1.split(' ').length;
+
+        if(inputarea.value == "") {
+            document.getElementById("count_characters").innerHTML = "0";
+            document.getElementById("count_word").innerHTML = "0";
+        }
+
+        document.getElementById("cmd--toggle_view").innerHTML = inputarea.value;
+    }
+</script>
+
+<script src="/sunstation_write/setting/shared_file/main.js"></script>
+</html>
