@@ -1,0 +1,1 @@
+<p>GD&TĐ -Ngày nay, kem có mặt ở khắp mọi nơi. Trẻ em thường chạy theo những chiếc xe bán kem vào mùa hè và háo hức nhìn chúng bày đầy khắp các kệ tại những cửa hàng tạp hóa.</p>
