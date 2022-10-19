@@ -1,0 +1,9 @@
+#logo_img_sunstation {
+    text-align: center;
+    user-select: none;
+}
+
+#logo_img_sunstation img {
+    border-radius: 20px;
+    -webkit-user-drag: none;
+}
