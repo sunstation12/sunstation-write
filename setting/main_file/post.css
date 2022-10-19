@@ -1,0 +1,64 @@
+.post {
+    padding: 8px 11px 12px;
+    /* background-color: burlywood; */
+    border-bottom: 2px solid var(--blue_three);
+}
+
+.user_name {
+    font-size: 19px;
+    display: inline-block;
+    margin-right: 10px;
+    color: var(--blue_three);
+    font-family: 'Exo 2', sans-serif;
+}
+
+.post_time {
+    font-size: 17px;
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+}
+
+.count_read_time {
+    margin-right: 15px;
+    font-family: 'Monda', sans-serif;
+}
+
+.describe_shortcut {
+    width: 500px;
+}
+
+.describe_shortcut p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post_name {
+    color: var(--blue_one);
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.post_link {
+    text-decoration: none;
+    color: var(--blue_one);
+}
+
+.post_theme {
+    display: inline-block;
+    padding: 1px 4px;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    font-family: 'Dosis', sans-serif;
+    background-color: var(--blue_four);
+}
+
+#count_post {
+    color: #ff0000;
+    display: inline-block;
+    margin-left: 14px;
+    font-size: 27px;
+    font-family: 'Dosis', sans-serif;
+}

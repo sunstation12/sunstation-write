@@ -1,0 +1,39 @@
+#link_sign {
+    margin-top: 20px;
+    font-size: 22px;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-decoration: none;
+}
+
+#link_permission,
+#link_sign_a {
+    color: blue;
+    text-decoration: none;
+}
+
+#link_permission:hover {
+    text-decoration: underline;
+}
+
+#link_sign div {
+    display: inline-block;
+}
+
+#link_sign_a:hover {
+    text-decoration: underline;
+}
+
+#thongbao {
+    font-size: 25px;
+    color: red;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+#thongbao a {
+    color: #2222b0;
+    transition: 0.2s;
+}
+
+#thongbao a:hover {
+    color: #024f9c;
+}

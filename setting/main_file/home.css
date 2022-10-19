@@ -1,0 +1,17 @@
+#website_home_name {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-family: 'Signika', sans-serif;
+}
+
+#btn_start_home_div {
+    text-align: center;
+}
+
+.hello_user {
+    font-size: 28px;
+    color: #0355ff;
+    display: inline-block;
+    font-family: 'Mitr', sans-serif;
+}
